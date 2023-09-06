@@ -1,5 +1,5 @@
 # Simple Macaroni and Cheese
-![Simple Macaroni and Cheese](/image.jpg "Simple Macaroni and Cheese")
+![Simple Macaroni and Cheese](./image.jpg "Simple Macaroni and Cheese")
 
 ## Ingredients
 - 1 (8 ounce) box elbow macaroni
@@ -10,7 +10,7 @@
 - 2 cups milk
 - 2 cups shredded Cheddar cheese
 
-# Instructions
+## Instructions
 1. Bring a large pot of lightly salted water to a boil. Cook elbow macaroni in the boiling water, stirring occasionally until cooked through but firm to the bite, 8 minutes.
 2. At the same time, melt butter in a saucepan over medium heat.
 3. Add flour, salt, and pepper and stir until smooth, about 5 minutes.
