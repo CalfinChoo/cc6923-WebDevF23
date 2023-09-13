@@ -1,2 +1,0 @@
-# Wireframing Article Reaction
-
