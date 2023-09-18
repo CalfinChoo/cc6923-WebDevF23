@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Layout 2; pixel based, percentage based and clear-fix class</title>
+  <style type="text/css">
+    body {
+        margin: 0;
+    }
+    div,
+    header,
+    footer,
+    section,
+    aside,
+    article,
+    main {
+        min-height: 100px;
+        background-color: rgba(0, 100, 255, 0.2);
+    }
+    main {
+        width: 960px;
+        margin: 0 auto;
+    }
+
+    /* 
+    reusable class that adds a block of empty content with zero height that will clear out both sides to avoid our 
+    wrapping issues. use this class on the container/wrapper element
+    */
+    .clearfix::after {
+        display: block;
+        clear: both;
+        height: 0;
+        font-size: 0;
+        content: '';
+        /* one last fallback */
+        visibility: hidden;
+    }
+
+    /* descendant selector for more specificity */
+    article.col-pixels section {
+        /* 960px - 6*10px margines / 3 */
+        width: 300px;
+        margin: 0 10px;
+        float: left;
+    }
+
+    article.col-fluid section {
+        width: 20%;
+        margin: 2.5%;
+        float: left;
+    }
+  </style>
+</head>
+<body>
+    
+        <header>A header element with width of 100%. We will cover menu layouts in another example.</header>
+        <main>
+            <h1>Article 1: Pixel Based</h1>
+            <article class="col-pixels clearfix">
+                <h3>Article with 3 vertical sections/columns</h3>
+                <section><h3>Section 1</h3></section>
+                <section><h3>Section 2</h3></section>
+                <section><h3>Section 3</h3></section>
+            </article>
+        </main>
+        <h1>Article 2: Percent Based</h1>
+        <!-- fluid layout useing % -->
+        <article class="col-fluid clearfix">
+            <h3>Article with 4 vertical sections/columns</h3>
+            <p>Notice that this article is outside of our main element which has a set pixel width</p>
+            <!-- start stacking our sections after our headings and p's that display block aka 100% by default -->
+            <section><h3>Section 1</h3></section>
+            <section><h3>Section 2</h3></section>
+            <section><h3>Section 3</h3></section>
+            <section><h3>Section 4</h3></section>
+            <section><h3>Section 1</h3></section>
+            <section><h3>Section 2</h3></section>
+            <section><h3>Section 3</h3></section>
+            <section><h3>Section 4</h3></section>
+        </article>
+        <footer>
+            Some footer text
+        </footer>
+    
+</body>
+</html>
+
+
+
+
+
+
