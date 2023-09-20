@@ -10,3 +10,4 @@ I thought that the article had valuable insights into the wireframing process in
 ![Semantic HTML](./img/semantic_html.png "Semantic HTML")
 ## Part 4 - Semantic HTML
 See "index.html" in this directory.
+ 
