@@ -22,3 +22,8 @@
 - Still Need to Learn:
   - Custom polygons/shapes for divs
   - Videos?
+
+## Sitemap/Wireframes
+![Site Map](./img/sitemap.png "Site Map")
+![Wireframe 1](./img/wireframe0.PNG "Wireframe 1")
+![Wireframe 2](./img/wireframe1.PNG "Wireframe 2")
