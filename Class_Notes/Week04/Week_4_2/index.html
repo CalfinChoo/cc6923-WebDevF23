@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Media Queries (and a little flexbox)</title>
+    <style type="text/css">
+        /* Desktop first, apply default stles for desktop then override for smaller screens */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Helvetica, Arial, sans-serif; 
+            background-color: red;
+        }
+        header.header-flex {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+        h1 {
+            margin: 0;
+        }
+        .main-nav ul {
+            list-style-type: none;
+            display: flex;
+            padding: 0;
+        }
+        .main-nav li {
+            text-align: center;
+        }
+        .main-nav a {
+            display: block;
+            padding: 1rem;
+            padding: 2rem;
+        }
+        .flex-container {
+            display: flex;
+            flex-direction: row;
+        }
+        .space-between, .space-around {
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem;
+            background-color: rgba(0, 255, 255, 0.5);
+        }
+        .space-around {
+            justify-content: space-around;
+            background-color: rgba(0, 255, 0, 0.5);
+        }
+        .thumb {
+            height: 10rem;
+            width: 23%; /* 4 thumbnails per row on desktop */
+            background-color: blue;
+            border: solid 1px red; 
+        }
+        @media only screen and (min-width: 760px) and (max-width: 1024px) {
+            body {
+                background-color: green;
+            }
+            .flex-container {
+                max-width: 1024px;
+                flex-wrap: wrap;
+            }
+            .thumb {
+                width: 40%;
+                flex-grow: 0;
+                flex-shrink: 1;
+                margin: 1% 0;
+            }
+        }
+    </style>
+    <link href="./css/styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="header-flex">
+        <h1>Logo</h1>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#">Link 1</a></li>
+                <li><a href="#">Link 2</a></li>
+                <li><a href="#">Link 3</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="flex-container space-between">
+        <div class="thumb"></div>
+        <div class="thumb"></div>
+        <div class="thumb"></div>
+        <div class="thumb"></div>
+    </div>
+
+    <div class="flex-container space-around">
+        <div class="thumb"></div>
+        <div class="thumb"></div>
+        <div class="thumb"></div>
+        <div class="thumb"></div>
+    </div>
+
+  </body>
+</html>
