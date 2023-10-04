@@ -16,7 +16,7 @@
 **Skills:**
 - Required:
   - General HTML, CSS
-  - Navbar, sections, images, flexbox, positioning (sticky), transforms
+  - Navbar, sections, images, forms, flexbox, positioning (sticky), transforms
 - Potentially:
   - Media query?
 - Still Need to Learn:
