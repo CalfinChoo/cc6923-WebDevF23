@@ -1,0 +1,413 @@
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: Special Elite, Helvetica, Arial, sans-serif;
+  min-height: 100%;
+}
+header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  background: radial-gradient(#425d0b, #2b4100); 
+  border-bottom: solid black 5px;
+}
+header nav {
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+header nav ul {
+  font-size: 0;
+}
+header nav ul li {
+  display: inline-block;
+  font-size: 1rem;
+}
+header nav li a {
+  display: block;
+  text-align: center;
+  width: 50px;
+  padding: 20px 0px;
+  text-decoration: none;
+  color: white;
+}
+header nav ul li a.active {
+  background-color: #888;
+}
+header nav ul li a:hover {
+  background-color: #111;
+  color: white;
+}
+nav ul {
+  list-style-type: none;
+  overflow: hidden;
+}
+nav h1 {
+  margin: 10px 30px 15px 30px;
+  padding: 5px 15px 0 15px;
+  background-color: cornsilk;
+}
+main section.file {
+  width: 100%;
+  height: 0;
+  margin-bottom: 5px;
+  position: absolute;
+}
+main div.file-container {
+  position: sticky;
+  width: 55%;
+  height: 65vh;
+}
+main div.file-container:nth-child(2) {
+  margin-left: 10%;
+  top: 65px;
+}
+main div.file-container:nth-child(4) {
+  /* background-color: blue; */
+  margin-left: 15%;
+  top: 95px;
+}
+main div.file-container:nth-child(6) {
+  /* background-color: yellow; */
+  margin-left: 20%;
+  top: 125px;
+}
+main div.file-container:nth-child(8) {
+  /* background-color: green; */
+  margin-left: 25%;
+  top: 155px;
+}
+main div.file-container:nth-child(10) {
+  /* background-color: lime; */
+  margin-left: 30%;
+  top: 185px;
+}
+main div.file-container:nth-child(12) {
+  /* background-color: gray; */
+  margin-left: 35%;
+  top: 215px;
+}
+main div.file-container div.tab {
+  display: flex;
+  height: 60px;
+}
+main div.file-container div.tab div.tab-label {
+  width: calc(5%/55*100*2);
+  display: flex;
+}
+main div.file-container div.tab div.tab-label div.label-half,
+main div.file-container div.tab div.tab-label div.no-label-half {
+  width: 50%;
+  height: 100%;
+  box-sizing: border-box;
+}
+main div.file-container div.tab div.tab-label div.label-half {
+  border-radius: 50% 0% 0% 0%;
+  border-left: 1px solid black;
+  border-top: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main div.file-container div.tab div.tab-label div.label-half h2 {
+  background-color: bisque;
+  padding: 5px 5px 0 5px;
+  font-size: 32px;
+}
+main div.file-container div.tab div.tab-label div.no-label-half div.no-label-half-top,
+main div.file-container div.tab div.tab-label div.no-label-half div.no-label-half-bottom {
+  height: 50%;
+}
+main div.file-container div.tab div.tab-label div.no-label-half div.no-label-half-top {
+  display: flex;
+}
+main div.file-container div.tab div.tab-label div.no-label-half div.no-label-half-top div.no-label-half-top-left,
+main div.file-container div.tab div.tab-label div.no-label-half div.no-label-half-top div.no-label-half-top-right {
+  width: 50%;
+  border-top: 1px solid black;
+  box-sizing: border-box;
+} 
+main div.file-container div.tab div.tab-label div.no-label-half div.no-label-half-top div.no-label-half-top-right {
+  border-radius: 0% 100% 0% 0%;
+  border-right: 1px solid black;
+  box-sizing: border-box;
+}
+main div.file-container div.tab div.tab-rest {
+  flex: 1;
+  height: 50%;
+  align-self: flex-end;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  box-sizing: border-box;
+  border-radius: 0% 30px 0% 0%;
+}
+main div.file-container div.tab {
+  border-bottom: 1px solid black;
+  box-sizing: border-box;
+}
+main div.file-container div.tab div.tab-label div.label-half,
+main div.file-container div.tab div.tab-label div.no-label-half div.no-label-half-top div.no-label-half-top-left,
+main div.file-container div.tab div.tab-label div.no-label-half div.no-label-half-top div.no-label-half-top-right, 
+main div.file-container div.tab div.tab-label div.no-label-half div.no-label-half-bottom,
+main div.file-container div.tab div.tab-rest {
+  background-color: #E4B780;
+}
+
+main div.file-container div.fact {
+  flex: 1;
+  border-radius: 0% 0% 30px 30px;
+  background: radial-gradient(#ffe4c4, #E4B780); 
+  border: 1px solid black; 
+  display: flex;
+  overflow: hidden;
+}
+main div.file-container div.fact div.fact-txt,
+main div.file-container div.fact div.fact-vis {
+  width: 50%;
+  display: flex;
+}
+main div.file-container div.fact div.fact-txt {
+  padding: calc(5%/55*100) 0 calc(5%/55*100) calc(5%/55*100);
+  box-sizing: border-box;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: cornsilk;
+  background-clip: content-box;
+}
+main div.file-container div.fact div.fact-txt h3,
+main div.file-container div.fact div.fact-txt p {
+  padding: 0 10px;
+  font-size: 16px;
+}
+
+main div.file-container div.fact div.fact-vis {
+  justify-content: center;
+  align-items: center;
+}
+main div.file-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.polaroid {
+  width: 55%; 
+  min-width: 200px;
+  display: inline-block;
+  margin: 20px;
+  position: relative;
+  transform: rotate(15deg);
+}
+.polaroid img, iframe {
+  width: 100%;
+  height: auto;
+  border: 10px solid cornsilk;
+  border-bottom-width: 45px;
+}
+.polaroid p {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  padding: 0 10px;
+  bottom: 14px;
+  color: #888;
+}
+
+main section.contact {
+  width: 100%;
+  height: 50vh;
+  min-height: 400px;
+  position: sticky;
+  top: 245px;
+  display: flex;
+}
+main section.contact div.front,
+main section.contact div.front div.face { 
+  border-top: 5px solid black;
+  border-left: 5px solid black;
+}
+main section.contact div.front {
+  width: 75%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  background: radial-gradient(#425d0b, #182105); 
+}
+main section.contact div.front div.face {
+  width: 97.5%;
+  height: 95%;
+  background: radial-gradient(#425d0b, #2E400A); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+main section.contact div.side,
+main section.contact div.side div.face {
+  clip-path: polygon(0 0, 100% 35%, 100% 100%, 0% 100%);
+}
+main section.contact div.side {
+  flex: 1;
+  background: black;
+  display: flex;
+  align-items: flex-end;
+}
+main section.contact div.side div.face {
+  width: 100%;
+  height: 95%;
+  background: #182105;
+}
+main section.contact div.front div.face h3 {
+  background: cornsilk;
+  padding: 10px 15px 0 15px;
+  font-size: 30px;
+  transform: rotate(-5deg);
+}
+form, fieldset {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.form-container {
+  background-color: cornsilk;
+  margin: 20px 0;
+  padding: 10px;
+}
+main {
+  padding-top: 10px;
+  background: radial-gradient(#2b4100,#141f00);  
+}
+
+@media screen and (min-width: 768px) and (max-width:1024px){
+  main div.file-container div.fact div.fact-txt {
+    padding: 15px 0 15px calc(5%/55*100);
+  }
+  .polaroid {
+    min-width: 100px;
+    transform: rotate(0deg);
+  }
+  main div.file-container div.fact div.fact-txt p {
+    padding: 0 10px;
+    font-size: 14px;
+  }
+  main div.file-container div.tab div.tab-label div.label-half h2 {
+    font-size: 24px;
+  }
+}
+
+@media only screen and (max-width:768px){
+  main div.file-container div.fact div.fact-txt {
+    padding: 15px calc(5%/55*100) 15px calc(5%/55*100);
+  }
+  .polaroid {
+    transform: rotate(0deg);
+  }
+  main div.file-container div.fact div.fact-txt p {
+    padding: 0 10px;
+    font-size: 14px;
+  }
+  main div.file-container div.fact {
+    flex-direction: column;
+  }
+  main div.file-container div.fact div.fact-txt,
+  main div.file-container div.fact div.fact-vis {
+    width: 100%;
+  }
+  main div.file-container {
+    height: auto;
+  }
+  nav h1 {
+    font-size: 16px;
+    margin: 15px 10px 15px 10px;
+  }
+  header nav li a {
+    font-size: 16px;
+    width: 30px;
+  }
+  main div.file-container div.tab div.tab-label div.label-half h2 {
+    font-size: 20px;
+  }
+  textarea {
+    height: 5em;
+    width: 15em;
+  }
+  main div.file-container div.fact div.fact-txt p {
+    font-size: 12px;
+  }
+  .polaroid {
+    min-width: 50px;
+    transform: rotate(0deg);
+  }
+  main div.file-container:nth-child(2) {
+    margin-left: 0%;
+    top: 65px;
+  }
+  main div.file-container:nth-child(4) {
+    margin-left: 5%;
+    top: 95px;
+  }
+  main div.file-container:nth-child(6) {
+    margin-left: 10%;
+    top: 125px;
+  }
+  main div.file-container:nth-child(8) {
+    margin-left: 15%;
+    top: 155px;
+  }
+  main div.file-container:nth-child(10) {
+    margin-left: 20%;
+    top: 185px;
+  }
+  main div.file-container:nth-child(12) {
+    margin-left: 25%;
+    top: 215px;
+  }
+  main div.file-container {
+    width: 75%;
+  }
+}
+
+@media only screen and (max-width:478px){
+  ul {
+    display: none;
+  }
+  main div.file-container div.tab div.tab-label div.label-half h2 {
+    font-size: 12px;
+  }
+  main div.file-container div.fact div.fact-txt p {
+    font-size: 10px;
+  }
+}
+
+@media (orientation: portrait) and (min-height: 365px) and (max-height:580px){
+  main div.file-container div.fact div.fact-txt {
+    padding: 15px 0 15px calc(5%/55*100);
+  }
+  .polaroid {
+    max-width: 40px;
+    transform: rotate(0deg);
+  }
+  main div.file-container div.fact div.fact-txt p {
+    padding: 0 10px;
+    font-size: 14px;
+  }
+}
+
+@media only (orientation: portrait) and (max-height:365px){
+  main div.file-container div.fact div.fact-txt {
+    padding: 15px 0 15px calc(5%/55*100);
+  }
+  .polaroid {
+    max-width: 20px;
+    transform: rotate(0deg);
+  }
+  main div.file-container div.fact div.fact-txt p {
+    padding: 0 10px;
+    font-size: 10px;
+  }
+}
