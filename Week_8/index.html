@@ -6,13 +6,18 @@
     <title>JS Function</title>
     <script type="text/Javascript">
       let count = 0;
-
+      let color = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
       function hello() {
-        console.log("Hello World!\nYou have said hello", ++count, "time(s).")
+        var h = document.getElementById('hello-txt');
+        h.innerHTML = "Hello World!\nYou have said hello " + (++count) + " time(s).";
+        h.style.color = color[(count-1)%color.length];
+        h.style.backgroundColor = color[(count+1)%color.length];
       }
     </script>
   </head>
   <body>
+    <h1>Click Me!</h1>
     <button onclick="hello()">Say Hello!</button>
+    <p id="hello-txt"></p>
   </body>
 </html>
