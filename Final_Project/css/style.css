@@ -29,6 +29,25 @@ a,
 .nav-link {
   font-size: 18px;
 }
+.list {
+  list-style-type: none;
+  max-height: 360px;
+  overflow: hidden auto;
+}
+.list {
+  margin: 10px 0 20px 0;
+  padding: 0;
+}
+.list-item {
+  height: 3.5rem;
+  border-bottom: 1px solid gainsboro;
+  box-sizing: border-box;
+}
+.sub-btn {
+  height: 2rem;
+  display: inline-flex;
+  align-items: center;
+}
 @media (max-width: 992px) {
   .home-instructions .card,
   .home-instructions p {

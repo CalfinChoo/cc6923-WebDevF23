@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fetch Pokémon Data</title>
+  </head>
+  <body>
+    <script>
+      function downloadDataAsJSON(data, filename) {
+        const json = JSON.stringify(data, null, 2);
+        const blob = new Blob([json], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = filename;
+
+        document.body.appendChild(a);
+        a.click();
+
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      }
+
+      async function fetchPokemonData() {
+        try {
+          const response = await fetch(
+            "https://pokeapi.co/api/v2/pokemon?limit=10000"
+          );
+          const data = await response.json();
+
+          const pokemonDetailsPromises = data.results.map(async (pokemon) => {
+            const detailsResponse = await fetch(pokemon.url);
+            const detailsData = await detailsResponse.json();
+
+            const extractedData = {
+              name: pokemon.name,
+              frontImage: detailsData.sprites.front_default,
+              types: detailsData.types,
+              speciesUrl: detailsData.species.url,
+            };
+
+            return extractedData;
+          });
+
+          const pokemonDetailsArray = await Promise.all(pokemonDetailsPromises);
+
+          const detailedPokemonPromises = pokemonDetailsArray.map(
+            async (pokemon) => {
+              const speciesResponse = await fetch(pokemon.speciesUrl);
+              const speciesData = await speciesResponse.json();
+
+              const additionalData = {
+                generation: speciesData.generation.name,
+              };
+
+              let out = { ...pokemon, ...additionalData };
+              delete out.speciesUrl;
+              return out;
+            }
+          );
+
+          const detailedPokemonArray = await Promise.all(
+            detailedPokemonPromises
+          );
+
+          downloadDataAsJSON(detailedPokemonArray, "pokemon_data.json");
+        } catch (error) {
+          console.error("Error fetching Pokémon data:", error);
+        }
+      }
+
+      fetchPokemonData();
+    </script>
+  </body>
+</html>
