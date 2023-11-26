@@ -27,45 +27,48 @@
   </head>
 
   <body>
-    <div class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
-      <div class="container-fluid">
-        <a href="#" class="logo-txt navbar-brand d-flex">
-          <img src="./img/logo.png" class="logo" />
-          <div class="navbar-text">Sudokumon</div>
-        </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNavDropdown"
-          aria-controller="#navbarNavDropdown"
-          aria-expanded="false"
-          aria-label="Toggle Navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div
-          class="collapse navbar-collapse justify-content-end"
-          id="navbarNavDropdown"
-        >
-          <ul class="navbar-nav align-self-end px-4">
-            <li class="nav-item px-2">
-              <a class="nav-link active" aria-current="page" href="./home.html"
-                >Home</a
-              >
-            </li>
-            <li class="nav-item px-2">
-              <a class="nav-link" href="./daily.html">Daily</a>
-            </li>
-            <li class="nav-item px-2">
-              <a class="nav-link" href="./custom.html">Custom</a>
-            </li>
-          </ul>
+    <main class="d-flex flex-column justify-content-between">
+      <div class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+        <div class="container-fluid">
+          <a href="#" class="logo-txt navbar-brand d-flex">
+            <img src="./img/logo.png" class="logo" />
+            <div class="navbar-text">Sudokumon</div>
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNavDropdown"
+            aria-controller="#navbarNavDropdown"
+            aria-expanded="false"
+            aria-label="Toggle Navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div
+            class="collapse navbar-collapse justify-content-end"
+            id="navbarNavDropdown"
+          >
+            <ul class="navbar-nav align-self-end px-4">
+              <li class="nav-item px-2">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="./home.html"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item px-2">
+                <a class="nav-link" href="./daily.html">Daily</a>
+              </li>
+              <li class="nav-item px-2">
+                <a class="nav-link" href="./custom.html">Custom</a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
 
-    <main>
       <div
         class="home-instructions container d-flex align-items-center flex-column"
       >
@@ -88,7 +91,7 @@
                 A wrong guess will cost a life so choose wisely! You lose when
                 you run out of lives!
               </li>
-              <li>There will be at least two correct answers per box.</li>
+              <li>There will be at least one correct answer per box.</li>
               <li>
                 Once you select a Pokémon, you can't switch your answer or reuse
                 that Pokémon.
@@ -99,17 +102,16 @@
                 as long as one of those types matches up with the type in the
                 appropriate row.
               </li>
-              <li>
-                When a specific region is a category, you must select a Pokémon
-                that originated from that region.
-              </li>
-              <li>
-                Mega and GMAX Evolved Pokémon will be under the region where the
-                normal form of the Pokémon originated.
-              </li>
             </ul>
           </div>
         </div>
+      </div>
+      <div class="footer text-center p-3">
+        Inspired by <a href="https://pokedoku.com/">Pokedoku</a><br />
+        Sudokumon is not affiliated with Nintendo and does not own or claim any
+        rights to any Nintendo trademark or the Pokémon trademark, and all
+        references to such are used for commentary and informational purposes
+        only.
       </div>
     </main>
   </body>

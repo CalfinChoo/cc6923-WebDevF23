@@ -48,6 +48,25 @@ a,
   display: inline-flex;
   align-items: center;
 }
+.banner {
+  background-color: rgba(237, 242, 247, 0.75);
+  border-radius: 1rem;
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+}
+.summaryImg {
+  width: 100%;
+  margin: 10px 0 20px 0;
+  border-radius: 1rem;
+}
+.footer {
+  font-size: 10px;
+  color: rgba(0, 0, 0, 0.48);
+}
+main {
+  min-height: 100vh;
+}
 @media (max-width: 992px) {
   .home-instructions .card,
   .home-instructions p {
