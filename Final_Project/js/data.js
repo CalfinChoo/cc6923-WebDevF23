@@ -144,6 +144,11 @@ const categories = {
     alt: "GMAX Form",
     type: "gmax",
   },
+  Monotype: {
+    img: null,
+    alt: "Monotype",
+    type: "monotype"
+  }
 };
 
 const liClassList = [
@@ -210,6 +215,7 @@ const excludeCombos = {
   Poison: ["Ice"],
   Dragon: ["Bug"],
   Ghost: ["Rock"],
-  GMAX: ["Mega"],
-  Mega: ["GMAX"],
+  GMAX: ["Mega", "Monotype"],
+  Mega: ["GMAX", "Monotype"],
+  Monotype: ["Mega", "GMAX"]
 };
