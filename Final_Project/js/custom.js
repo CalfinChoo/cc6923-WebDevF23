@@ -3,7 +3,16 @@ const COL_INDEX = 2;
 
 var ROWS, COLS;
 var allowMonotype, allowMega, allowGMAX;
-var squares, modal, cat_squares, lives, life_count, list, search, grid, row_cats, col_cats;
+var squares,
+  modal,
+  cat_squares,
+  lives,
+  life_count,
+  list,
+  search,
+  grid,
+  row_cats,
+  col_cats;
 var seconds, timerInterval;
 var activeSquares;
 var generatedKeys;
@@ -220,7 +229,7 @@ const openModal = (square) => {
     modal.find(".modal-body input").attr("placeholder", "Search Pokémon...");
     modal.find(".modal-body input").val("");
     setTimeout(function () {
-        modal.find(".modal-body input").focus();
+      modal.find(".modal-body input").focus();
     }, 500);
   });
   $("#selectionModal").modal("toggle");
@@ -328,34 +337,45 @@ const selectForm = (formId) => {
   var form2 = document.getElementById("form2");
 
   if (formId === "form1") {
-      form1.style.display = "flex";
-      form2.style.display = "none";
+    form1.style.display = "flex";
+    form2.style.display = "none";
   } else {
-      form1.style.display = "none";
-      form2.style.display = "flex";
+    form1.style.display = "none";
+    form2.style.display = "flex";
   }
 
   var buttons = formContainer.getElementsByClassName("btn");
   for (var i = 0; i < buttons.length; i++) {
-      buttons[i].classList.remove("btn-dark");
+    buttons[i].classList.remove("btn-dark");
   }
 
-  document.getElementById(formId+"-btn").classList.add("btn-dark");
+  document.getElementById(formId + "-btn").classList.add("btn-dark");
 };
 
 const restrictInput = (input) => {
   if (parseInt(input.value) < 1) input.value = 1;
   else if (parseInt(input.value) > 5) input.value = 5;
-}
+};
 
 const submit = (formNum) => {
   if (formNum === 1 || formNum === 2) {
-    numLives = (formNum === 1) ? parseInt(document.getElementById("lives1").value) : parseInt(document.getElementById("lives2").value);
-    ROWS = (formNum === 1) ? parseInt(document.getElementById("rows").value) : selected_rows.length;
-    COLS = (formNum === 1) ? parseInt(document.getElementById("cols").value) : selected_cols.length;
+    numLives =
+      formNum === 1
+        ? parseInt(document.getElementById("lives1").value)
+        : parseInt(document.getElementById("lives2").value);
+    ROWS =
+      formNum === 1
+        ? parseInt(document.getElementById("rows").value)
+        : selected_rows.length;
+    COLS =
+      formNum === 1
+        ? parseInt(document.getElementById("cols").value)
+        : selected_cols.length;
     allowMonotype = document.getElementById("allowMonotype").checked;
     allowMega = document.getElementById("allowMega").checked;
     allowGMAX = document.getElementById("allowGMAX").checked;
+
+    grid.style.width = Math.min((COLS + 2) * 100, 700).toString() + "px";
 
     const livesDivElement = document.createElement("div");
     livesDivElement.classList.add("col", "p-0");
@@ -366,33 +386,33 @@ const submit = (formNum) => {
     livesDivElement.appendChild(livesSpanElement);
 
     var catId = 0;
-    for (let i = 0; i < ROWS+1; ++i) {
+    for (let i = 0; i < ROWS + 1; ++i) {
       const rowDivElement = document.createElement("div");
       rowDivElement.classList.add("row", "no-gutters");
-      rowDivElement.style.width = (100*(COLS+2)).toString()+"px";
+      rowDivElement.style.width = (100 * (COLS + 2)).toString() + "px";
       const divElement = document.createElement("div");
       divElement.classList.add("col", "p-0");
-      for (let j = 0; j < COLS+1; ++j) {
+      for (let j = 0; j < COLS + 1; ++j) {
         const catDivElement = document.createElement("div");
         catDivElement.classList.add("cat", "col", "p-0");
         const squareDivElement = document.createElement("div");
         squareDivElement.classList.add("square", "col", "p-0");
         if (i === 0) {
           if (j == 0) {
+            livesDivElement.classList.add("lives-stick");
             rowDivElement.appendChild(livesDivElement);
-          }
-          else {
-            catDivElement.id = "cat"+(catId++).toString();
+          } else {
+            catDivElement.id = "cat" + (catId++).toString();
+            catDivElement.classList.add("cat-tstick", "sticky-top");
             rowDivElement.appendChild(catDivElement);
           }
-        }
-        else {
+        } else {
           if (j == 0) {
-            catDivElement.id = "cat"+(catId++);
+            catDivElement.id = "cat" + catId++;
+            catDivElement.classList.add("cat-lstick");
             rowDivElement.appendChild(catDivElement);
-          }
-          else {
-            squareDivElement.id = "b"+(i-1).toString()+(j-1).toString();
+          } else {
+            squareDivElement.id = "b" + (i - 1).toString() + (j - 1).toString();
             rowDivElement.appendChild(squareDivElement);
           }
         }
@@ -400,9 +420,12 @@ const submit = (formNum) => {
       rowDivElement.appendChild(divElement);
       grid.appendChild(rowDivElement);
     }
-    generatedKeys = (formNum === 1) ? generateUniqueRandomKeys(categories) : [...selected_cols, ...selected_rows];
+    generatedKeys =
+      formNum === 1
+        ? generateUniqueRandomKeys(categories)
+        : [...selected_cols, ...selected_rows];
   }
-  console.log(generatedKeys);
+  //console.log(generatedKeys);
   setup();
   $("#settingsModal").modal("toggle");
 };
@@ -461,26 +484,25 @@ const setup = () => {
 
 const handleCheckboxChange = (e) => {
   //console.log(e)
-  console.log(e.target.checked);
+  //console.log(e.target.checked);
   if (e.target.id.includes("row-")) {
     if (e.target.checked) {
       selected_rows.push(e.target.value);
-      if (e.target.value in excludeCombos) exclude_cols[e.target.value] = excludeCombos[e.target.value];
-    }
-    else {
+      if (e.target.value in excludeCombos)
+        exclude_cols[e.target.value] = excludeCombos[e.target.value];
+    } else {
       const index = selected_rows.indexOf(e.target.value);
       if (index !== -1) {
         selected_rows.splice(index, 1);
       }
       delete exclude_cols[e.target.value];
     }
-  }
-  else if (e.target.id.includes("col-")) {
+  } else if (e.target.id.includes("col-")) {
     if (e.target.checked) {
       selected_cols.push(e.target.value);
-      if (e.target.value in excludeCombos) exclude_rows[e.target.value] = excludeCombos[e.target.value];
-    }
-    else {
+      if (e.target.value in excludeCombos)
+        exclude_rows[e.target.value] = excludeCombos[e.target.value];
+    } else {
       const index = selected_cols.indexOf(e.target.value);
       if (index !== -1) {
         selected_cols.splice(index, 1);
@@ -489,65 +511,67 @@ const handleCheckboxChange = (e) => {
     }
   }
 
-  Object.keys(categories).forEach(key => {
-    document.getElementById("row-"+key).disabled = false;
-    document.getElementById("col-"+key).disabled = false;
+  Object.keys(categories).forEach((key) => {
+    document.getElementById("row-" + key).disabled = false;
+    document.getElementById("col-" + key).disabled = false;
   });
-  Object.keys(exclude_rows).forEach(key => {
+  Object.keys(exclude_rows).forEach((key) => {
     for (let cat of exclude_rows[key]) {
-      document.getElementById("row-"+cat).disabled = true;
+      document.getElementById("row-" + cat).disabled = true;
     }
   });
-  Object.keys(exclude_cols).forEach(key => {
+  Object.keys(exclude_cols).forEach((key) => {
     for (let cat of exclude_cols[key]) {
-      document.getElementById("col-"+cat).disabled = true;
+      document.getElementById("col-" + cat).disabled = true;
     }
   });
 
-  document.getElementById('selection-rows').innerHTML = selected_rows.toString();
-  document.getElementById('selection-cols').innerHTML = selected_cols.toString()
+  document.getElementById("selection-rows").innerHTML =
+    selected_rows.toString();
+  document.getElementById("selection-cols").innerHTML =
+    selected_cols.toString();
 
-  document.getElementById('start2').disabled = !(selected_rows.length > 0 && selected_cols.length > 0);
+  document.getElementById("start2").disabled = !(
+    selected_rows.length > 0 && selected_cols.length > 0
+  );
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-    function createCheckbox(rc, value) {
-      const divElement = document.createElement("div");
-      divElement.classList.add("form-check");
+  function createCheckbox(rc, value) {
+    const divElement = document.createElement("div");
+    divElement.classList.add("form-check");
 
-      const inputElement = document.createElement("input");
-      inputElement.type = "checkbox";
-      inputElement.id = rc+value;
-      inputElement.value = value;
-      inputElement.classList.add("form-check-input");
-      inputElement.addEventListener("change", handleCheckboxChange);
+    const inputElement = document.createElement("input");
+    inputElement.type = "checkbox";
+    inputElement.id = rc + value;
+    inputElement.value = value;
+    inputElement.classList.add("form-check-input");
+    inputElement.addEventListener("change", handleCheckboxChange);
 
-      const labelElement = document.createElement("label");
-      labelElement.setAttribute("for", rc+value);
-      labelElement.classList.add("form-check-label");
-      labelElement.innerHTML = value;
+    const labelElement = document.createElement("label");
+    labelElement.setAttribute("for", rc + value);
+    labelElement.classList.add("form-check-label");
+    labelElement.innerHTML = value;
 
-      divElement.appendChild(inputElement);
-      divElement.appendChild(labelElement);
-      return divElement;
-    }
+    divElement.appendChild(inputElement);
+    divElement.appendChild(labelElement);
+    return divElement;
+  }
 
-    grid = document.getElementById("grid");
-    row_cats = document.getElementById("row-cats");
-    col_cats = document.getElementById("col-cats");
-    $("#settingsModal").on("show.bs.modal", function () {
-      var modal = $(this);
-      modal.find(".modal-title").text("Custom Puzzle Settings");
-      modal
-        .find(".modal-body")
-    });
-    $("#settingsModal").modal("toggle");
-    selectForm('form1');
-    
-    var cats = Object.keys(categories);
-    for (let cat of cats) {
-      row_cats.appendChild(createCheckbox("row-", cat));
-      col_cats.appendChild(createCheckbox("col-", cat));
-    }
+  grid = document.getElementById("grid");
+  row_cats = document.getElementById("row-cats");
+  col_cats = document.getElementById("col-cats");
+  $("#settingsModal").on("show.bs.modal", function () {
+    var modal = $(this);
+    modal.find(".modal-title").text("Custom Puzzle Settings");
+    modal.find(".modal-body");
+  });
+  $("#settingsModal").modal("toggle");
+  selectForm("form1");
+
+  var cats = Object.keys(categories);
+  for (let cat of cats) {
+    row_cats.appendChild(createCheckbox("row-", cat));
+    col_cats.appendChild(createCheckbox("col-", cat));
+  }
 });
-
