@@ -352,6 +352,10 @@ const selectForm = (formId) => {
   document.getElementById(formId + "-btn").classList.add("btn-dark");
 };
 
+const restrictLivesInput = (input) => {
+  if (parseInt(input.value) < 1) input.value = 1;
+};
+
 const restrictInput = (input) => {
   if (parseInt(input.value) < 1) input.value = 1;
   else if (parseInt(input.value) > 5) input.value = 5;
