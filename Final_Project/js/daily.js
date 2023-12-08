@@ -252,8 +252,10 @@ const handleSelect = (i) => {
     spanElement.innerHTML =
       "<strong>" + formatName(monData[i].name) + "</strong>";
     spanElement.classList.add(...nameBanner);
-    target.appendChild(imgElement);
-    target.appendChild(spanElement);
+    if (!target.hasChildNodes()) {
+      target.appendChild(imgElement);
+      target.appendChild(spanElement);
+    }
   }
   updateGameState();
 };
