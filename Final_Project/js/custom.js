@@ -1,6 +1,3 @@
-const ROW_INDEX = 1;
-const COL_INDEX = 2;
-
 var ROWS, COLS;
 var allowMonotype, allowMega, allowGMAX;
 var squares,
@@ -201,20 +198,20 @@ const updateTimer = () => {
 };
 
 const onStay = (square) => {
-  let r = parseInt(square.id[ROW_INDEX]);
-  let c = parseInt(square.id[COL_INDEX]);
+  let r = parseInt(square.id.substring(1, square.id.indexOf("-")));
+  let c = parseInt(square.id.substring(square.id.indexOf("-")+1));
   if (activeSquares[r][c] == 0 && numLives !== 0)
     square.classList.add("selected");
 };
 const onExit = (square) => {
-  let r = parseInt(square.id[ROW_INDEX]);
-  let c = parseInt(square.id[COL_INDEX]);
+  let r = parseInt(square.id.substring(1, square.id.indexOf("-")));
+  let c = parseInt(square.id.substring(square.id.indexOf("-")+1));
   if (activeSquares[r][c] == 0 && numLives !== 0)
     square.classList.remove("selected");
 };
 const openModal = (square) => {
-  let r = parseInt(square.id[ROW_INDEX]);
-  let c = parseInt(square.id[COL_INDEX]);
+  let r = parseInt(square.id.substring(1, square.id.indexOf("-")));
+  let c = parseInt(square.id.substring(square.id.indexOf("-")+1));
   if (activeSquares[r][c] !== 0 || numLives === 0) return;
   currRow = r;
   currCol = c;
@@ -265,7 +262,7 @@ const handleSelect = (i) => {
     }
   }
   if (!incorrect) {
-    var target = document.getElementById("b" + currRow + currCol);
+    var target = document.getElementById("b" + currRow + "-" + currCol);
     activeSquares[currRow][currCol] = 1;
     ++correct;
     used.add(monData[i].name);
@@ -416,7 +413,7 @@ const submit = (formNum) => {
             catDivElement.classList.add("cat-lstick");
             rowDivElement.appendChild(catDivElement);
           } else {
-            squareDivElement.id = "b" + (i - 1).toString() + (j - 1).toString();
+            squareDivElement.id = "b" + (i - 1).toString() + "-" + (j - 1).toString();
             rowDivElement.appendChild(squareDivElement);
           }
         }
