@@ -274,8 +274,10 @@ const handleSelect = (i) => {
     spanElement.innerHTML =
       "<strong>" + formatName(monData[i].name) + "</strong>";
     spanElement.classList.add(...nameBanner);
-    target.appendChild(imgElement);
-    target.appendChild(spanElement);
+    if (!target.hasChildNodes()) {
+      target.appendChild(imgElement);
+      target.appendChild(spanElement);
+    }
   }
   updateGameState();
 };
@@ -517,14 +519,12 @@ const handleCheckboxChange = (e) => {
     document.getElementById("col-" + key).disabled = false;
   });
   Object.keys(exclude_rows).forEach((key) => {
-    for (let cat of exclude_rows[key]) {
-      document.getElementById("row-" + cat).disabled = true;
-    }
+    for (let cat of selected_cols) document.getElementById("row-" + cat).disabled = true;
+    for (let cat of exclude_rows[key]) document.getElementById("row-" + cat).disabled = true;
   });
   Object.keys(exclude_cols).forEach((key) => {
-    for (let cat of exclude_cols[key]) {
-      document.getElementById("col-" + cat).disabled = true;
-    }
+    for (let cat of selected_rows) document.getElementById("col-" + cat).disabled = true;
+    for (let cat of exclude_cols[key]) document.getElementById("col-" + cat).disabled = true;
   });
 
   document.getElementById("selection-rows").innerHTML =
